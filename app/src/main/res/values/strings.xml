@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">viaNature</string>
+    <string name="email_address" />
+    <string name="password" />
+    <string name="login" />
+    <string name="forgot_password" />
+    <string name="register" />
+    <string name="register_user" />
 </resources>
