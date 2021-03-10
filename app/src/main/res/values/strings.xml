@@ -6,6 +6,7 @@
     <string name="full_name">Full Name</string>
     <string name="email_address">email</string>
     <string name="login">login</string>
-    <string name="forgot_password">forgot_password</string>
+    <string name="forgot_password" />
+    <string name="forgotpass">ForgotPass</string>
 
 </resources>

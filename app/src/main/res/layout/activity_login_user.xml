@@ -52,7 +52,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="40dp"
-        android:text="@string/forgot_password"
+        android:text="@string/forgotpass"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signIn" />
 
@@ -60,8 +60,9 @@
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="24dp"
         android:text="@string/register"
         app:layout_constraintStart_toEndOf="@+id/forgotPassword"
         app:layout_constraintTop_toTopOf="@+id/forgotPassword" />
