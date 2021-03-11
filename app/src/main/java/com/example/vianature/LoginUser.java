@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginUser extends AppCompatActivity implements View.OnClickListener {
 
@@ -94,8 +95,16 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) {
-                        //red to user profile
-                        startActivity(new Intent(LoginUser.this, ProfileActivity.class));
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                        if(user.isEmailVerified()) {
+                            //redirect to user profile if email is verified
+                            startActivity(new Intent(LoginUser.this, ProfileActivity.class));
+                        } else {
+                            user.sendEmailVerification();
+                            Toast.makeText(LoginUser.this, "Please verify your email. An email has been sent", Toast.LENGTH_LONG).show();
+                        }
                     }else {
                         Toast.makeText(LoginUser.this, "Failed to login. Please check credentials", Toast.LENGTH_LONG).show();
                     }
