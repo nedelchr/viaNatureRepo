@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
+    public FirebaseAuth firebaseAuth;
     private FirebaseAuth mAuth;
     private static final String TAG = "MainActivity";
 
@@ -36,19 +38,40 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.home:
-                        return true;
-                    case R.id.favoutire:
-                        startActivity(new Intent(getApplicationContext(), Favourite.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.user:
-                        startActivity(new Intent(getApplicationContext(), LoginUser.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
+                    if(firebaseAuth.getInstance().getCurrentUser() == null)
+                    { switch (item.getItemId()) {
+                        case R.id.home:
+                            return true;
+                        case R.id.favoutire:
+                            Log.i("TAG", "not logged in");
+                            startActivity(new Intent(getApplicationContext(), LoginUser.class));
+                            overridePendingTransition(0, 0);
+                            Toast.makeText(MainActivity.this, "Please log in first to be able to use Favourites", Toast.LENGTH_LONG).show();
+                            return true;
+                        case R.id.user:
+                            Log.i("TAG", "not logged in");
+                            startActivity(new Intent(getApplicationContext(), LoginUser.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                    }
+                    return false;
+                    }else {
+                        switch (item.getItemId()) {
+                            case R.id.home:
+                                return true;
+                            case R.id.favoutire:
+                                Log.i("TAG","logged in");
+                                startActivity(new Intent(getApplicationContext(), Favourite.class));
+                                overridePendingTransition(0,0);
+                                return true;
+                            case R.id.user:
+                                Log.i("TAG","logged in");
+                                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                overridePendingTransition(0,0);
+                                return true;
+                        }
+                        return false;
+                    }
             }
         });
 

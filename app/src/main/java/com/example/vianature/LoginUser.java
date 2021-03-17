@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PatternMatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +31,7 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
     private Button signIn;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
+    public FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,19 +58,41 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                if(firebaseAuth.getInstance().getCurrentUser() == null)
+                { switch (item.getItemId()) {
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.favoutire:
-                        startActivity(new Intent(getApplicationContext(), Favourite.class));
-                        overridePendingTransition(0,0);
+                        Log.i("TAG", "not logged in");
+                        startActivity(new Intent(getApplicationContext(), LoginUser.class));
+                        overridePendingTransition(0, 0);
+                        Toast.makeText(LoginUser.this, "Please log in first to be able to use Favourites", Toast.LENGTH_LONG).show();
                         return true;
                     case R.id.user:
-                         return true;
+                        return true;
                 }
-                return false;
+                    return false;
+                }else {
+                    switch (item.getItemId()) {
+                        case R.id.home:
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            overridePendingTransition(0,0);
+                            return true;
+                        case R.id.favoutire:
+                            Log.i("TAG","logged in");
+                            startActivity(new Intent(getApplicationContext(), Favourite.class));
+                            overridePendingTransition(0,0);
+                            return true;
+                        case R.id.user:
+                            Log.i("TAG","logged in");
+                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            overridePendingTransition(0,0);
+                            return true;
+                    }
+                    return false;
+                }
             }
         });
     }
