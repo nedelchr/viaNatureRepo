@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,7 +28,6 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
     private TextView register;
     private EditText editTextEmail, editTextPassword;
     private Button signIn;
-
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
 
@@ -47,6 +48,29 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setSelectedItemId(R.id.user);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.favoutire:
+                        startActivity(new Intent(getApplicationContext(), Favourite.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.user:
+                         return true;
+                }
+                return false;
+            }
+        });
     }
 
     @SuppressLint("NonConstantResourceId")
