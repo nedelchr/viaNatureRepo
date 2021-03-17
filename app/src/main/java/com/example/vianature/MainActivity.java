@@ -17,11 +17,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     public FirebaseAuth firebaseAuth;
     private FirebaseAuth mAuth;
     private static final String TAG = "MainActivity";
+    public TextView pressed;
 
 
     @Override
@@ -31,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        pressed = (TextView) findViewById(R.id.addDest);
+        pressed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddDestination.class));
+            }
+        });
+        //pressed.setOnClickListener(this);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -40,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     if(firebaseAuth.getInstance().getCurrentUser() == null)
                     { switch (item.getItemId()) {
+                        case R.id.addDest:
+                            startActivity(new Intent(getApplicationContext(), AddDestination.class));
+                            overridePendingTransition(0,0);
+                            return true;
                         case R.id.home:
                             return true;
                         case R.id.favoutire:
@@ -57,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                     return false;
                     }else {
                         switch (item.getItemId()) {
+                            case R.id.addDest:
+                                startActivity(new Intent(getApplicationContext(), AddDestination.class));
+                                overridePendingTransition(0,0);
+                                return true;
                             case R.id.home:
                                 return true;
                             case R.id.favoutire:

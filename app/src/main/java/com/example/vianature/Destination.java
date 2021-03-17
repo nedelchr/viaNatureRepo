@@ -10,7 +10,6 @@ public class Destination {
     public Destination(){
 
     }
-
     public Destination(String title, String description, String region, String type, String hardness, String addedBy) {
         this.title = title;
         this.description = description;
@@ -22,4 +21,29 @@ public class Destination {
 
         //example
     }
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getHardness() {
+        return hardness;
+    }
+
+    public String getAddedBy() {
+        return addedBy;
+    }
+
+
 }

@@ -9,24 +9,24 @@
     <string name="forgot_password" />
     <string name="forgotpass">ForgotPass</string>
 
-    <string-array name="region">
+    <array name="region">
         <item>East</item>
         <item>West</item>
         <item>North</item>
         <item>South</item>
-    </string-array>
+    </array>
 
-    <string-array name="type">
+    <array name="type">
         <item>open</item>
         <item>rocks</item>
         <item>forest</item>
         <item>mountain</item>
-    </string-array>
+    </array>
 
-    <string-array name="hardness">
+    <array name="hardness">
         <item>chill</item>
         <item>medium</item>
         <item>extreme</item>
-    </string-array>
+    </array>
 
 </resources>

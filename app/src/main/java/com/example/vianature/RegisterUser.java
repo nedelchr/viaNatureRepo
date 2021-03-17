@@ -27,6 +27,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     private TextView banner, registerUser;
     private EditText editTextFullName, editTextEmail, editTextPassword;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,6 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.registerUser:
                 registerUser();
                 break;
