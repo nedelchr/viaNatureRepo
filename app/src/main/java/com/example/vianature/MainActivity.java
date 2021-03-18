@@ -63,7 +63,9 @@ public class MainActivity extends AppCompatActivity  {
                             return true;
                         case R.id.user:
                             Log.i("TAG", "not logged in");
-                            startActivity(new Intent(getApplicationContext(), LoginUser.class));
+                            //startActivity(new Intent(getApplicationContext(), LoginUser.class));
+                            startActivity(new Intent(getApplicationContext(), ResultActivity.class));
+
                             overridePendingTransition(0, 0);
                             return true;
                     }
@@ -83,7 +85,8 @@ public class MainActivity extends AppCompatActivity  {
                                 return true;
                             case R.id.user:
                                 Log.i("TAG","logged in");
-                                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                               // startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                startActivity(new Intent(getApplicationContext(), ResultActivity.class));
                                 overridePendingTransition(0,0);
                                 return true;
                         }
