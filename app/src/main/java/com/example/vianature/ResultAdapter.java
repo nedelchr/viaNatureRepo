@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class ResultAdapter extends FirebaseRecyclerAdapter<Destination, ResultAd
         holder.region.setText(data.getRegion());
         holder.description.setText(data.getDescription());
 
-//        Picasso.get().load(data.getImageUrl()).into(holder.imgurl);
+        Picasso.get().load(data.getImageUrl()).into(holder.imgurl);
 
     }
 
@@ -54,16 +55,16 @@ public class ResultAdapter extends FirebaseRecyclerAdapter<Destination, ResultAd
 
 
         TextView title,description, region, type;
-//        ImageView imgurl;
+       ImageView imgurl;
 
 
         public PastViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
-            description = itemView.findViewById(R.id.type);
+            description = itemView.findViewById(R.id.description);
             region = itemView.findViewById(R.id.region);
             type = itemView.findViewById(R.id.type);
-//            imgurl = itemView.findViewById(R.id.imageShow);
+           imgurl = itemView.findViewById(R.id.imageShow);
 
 
 

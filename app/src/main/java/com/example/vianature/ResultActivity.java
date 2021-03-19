@@ -40,7 +40,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
 
-        recyclerView = findViewById(R.id.recycler);
+        recyclerView = findViewById(R.id.recycler1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,  LinearLayoutManager.HORIZONTAL, false));
 
         FirebaseRecyclerOptions<Destination> options =

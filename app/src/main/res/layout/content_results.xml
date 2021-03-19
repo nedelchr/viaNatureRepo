@@ -4,65 +4,75 @@
     android:layout_height="wrap_content"
     android:id="@+id/parentLayout"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
 
     >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="390dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        card_view:cardCornerRadius="10dp"
+        app:cardBackgroundColor="#ACACAC"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true"
+        app:cardUseCompatPadding="true"
+        >
 
+        <ImageView
+            android:id="@+id/imageShow"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_image_24"
+            android:scaleType="fitXY"/>
 
-        <TextView
-            android:id="@+id/title"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:hint="Title"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp">
 
-        <TextView
-            android:id="@+id/level"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
-            android:hint="level"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/black"
-            android:textSize="13sp" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="2dp"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:hint="Title"
+                android:layout_marginLeft="2dp" />
 
-        <TextView
-            android:id="@+id/region"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/level"
-            android:hint="Region"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/black"
-            android:textSize="13sp" />
+            <TextView
+                android:id="@+id/description"
+                android:layout_below="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:hint="Description"/>
+            <TextView
+                android:id="@+id/region"
+                android:layout_below="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:hint="Region"/>
+            <TextView
+                android:id="@+id/type"
+                android:layout_below="@+id/region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:hint="Type"/>
 
-        <TextView
-            android:id="@+id/type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/region"
-            android:hint="Type"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/black"
-            android:textSize="13sp" />
-
-
-    </RelativeLayout>
 
 
 
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

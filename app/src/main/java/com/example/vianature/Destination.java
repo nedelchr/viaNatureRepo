@@ -6,21 +6,24 @@ public class Destination {
     public String type;
     public String hardness;
     public String addedBy;
+    public String imageUrl;
 
-    public Destination(){
 
-    }
-    public Destination(String title, String description, String region, String type, String hardness, String addedBy) {
+    public Destination(String title, String description, String region, String type, String hardness, String addedBy, String imageUrl) {
         this.title = title;
         this.description = description;
         this.region = region;
         this.type = type;
         this.hardness = hardness;
         this.addedBy = addedBy;
-
-
-        //example
+        this.imageUrl = imageUrl;
     }
+
+    public Destination(){
+
+    }
+
+
     public String getTitle() {
         return title;
     }
@@ -45,5 +48,7 @@ public class Destination {
         return addedBy;
     }
 
-
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }

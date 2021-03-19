@@ -8,22 +8,86 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/logo"
+        android:layout_margin="20dp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/searchButton"
+        android:layout_width="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/ic_baseline_search_24"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:layout_marginRight="19dp"
+            android:layout_below="@id/search"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
     <TextView
+        android:id="@+id/recently"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:text="Recently added Destinations"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:layout_below="@id/logo"/>
+
+
+
+    <ScrollView
+        android:layout_below="@id/recently"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/teal_700"
         android:id="@+id/addDest"
-        android:textSize="50dp"
+        android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_centerInParent="true"/>
-
-
-
+        android:layout_above="@id/bottom_navigation"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
-        android:background="@color/purple_200"
+        android:background="@color/teal_700"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"
