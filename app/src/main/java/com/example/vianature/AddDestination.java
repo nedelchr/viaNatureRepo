@@ -3,6 +3,7 @@ package com.example.vianature;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -110,6 +111,7 @@ public class AddDestination extends AppCompatActivity implements  View.OnClickLi
         String type = spinnerType.getSelectedItem().toString();
         String hardness = spinnerHardness.getSelectedItem().toString();
         Destination destination = new Destination(title, description, region, type, hardness, "Someone");
+        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
         studentDbRef.push().setValue(destination);
        Toast.makeText(AddDestination.this, "Data inserted", Toast.LENGTH_SHORT).show();

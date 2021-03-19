@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity  {
                             case R.id.user:
                                 Log.i("TAG","logged in");
                                // startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                                startActivity(new Intent(getApplicationContext(), ResultActivity.class));
+                                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                                 overridePendingTransition(0,0);
                                 return true;
                         }
